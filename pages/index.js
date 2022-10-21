@@ -72,15 +72,38 @@ export default function Home() {
         <div className="flex justify-center">
           <h1 className="font-white text-4xl text-white">bla bla lba</h1>
         </div>
-        <div className="flex flex-row">
-          <div>
-            <div className="bg-white rounded-full w-12 h-12"></div>
+        <div className="flex flex-row justify-evenly py-24 h-[2000px]">
+          <div className="flex-none flex flex-col justify-evenly h-full">
+            {[...Array(28).keys()].map((x) => (
+              <div key={x} className="flex flex-row items-center ">
+                <div className="text-white font-bold">{x + 1995}</div>
+                <div className="ml-3 text-white bg-white h-3 w-3 rounded-full"></div>
+                <div className="text-white bg-white h-[1px] w-12"></div>
+              </div>
+            ))}
           </div>
-          <div>
-            <div className="bg-white rounded-full w-12 h-12"></div>
-          </div>
-          <div>
-            <div className="bg-white rounded-full w-12 h-12"></div>
+          <div className="flex-1 relative flex flex-row justify-evenly">
+            <div>
+              <div className="bg-purple-500 drop-shadow-md-white mx-2 w-12 h-full rounded-full"></div>
+              <div className="absolute top-0 bg-white  drop-shadow-md-white rounded-full w-16 h-16"></div>
+              <div className="sticky bottom-0 bg-gray-800 rounded-t-full">
+                <div className=" bg-white drop-shadow-md-white rounded-full w-16 h-16"></div>
+              </div>
+            </div>
+            <div>
+              <div className="bg-emerald-500 drop-shadow-md-white mx-2 w-12 h-full rounded-full"></div>
+              <div className="absolute top-0 bg-white drop-shadow-md-white rounded-full w-16 h-16"></div>
+              <div className="sticky bottom-0 bg-gray-800 rounded-t-full">
+                <div className=" bg-white drop-shadow-md-white rounded-full w-16 h-16"></div>
+              </div>
+            </div>
+            <div>
+              <div className="bg-orange-500 drop-shadow-md-white mx-2 w-12 h-full rounded-full"></div>
+              <div className="absolute top-0 bg-white drop-shadow-md-white rounded-full w-16 h-16"></div>
+              <div className="sticky bottom-0 bg-gray-800 rounded-t-full">
+                <div className=" bg-white drop-shadow-md-white rounded-full w-16 h-16"></div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
