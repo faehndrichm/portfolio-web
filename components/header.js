@@ -7,7 +7,7 @@ return (
       <div className="font-bold cursor-pointer text-3xl transition ease-in-out delay-150 hover:scale-110 hover:text-purple-600">
         MF
       </div>
-      <div className="flex gap-3 items-center">
+      <div className="hidden md:flex gap-3 items-center ">
         <div className="text-base font-bold p-3 underline-offset-4 cursor-pointer hover:underline">
           Lustige Algos
         </div>
@@ -35,7 +35,7 @@ return (
           strokeLinejoin="round"
           strokeWidth="2"
           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-      </svg>{" "}
+      </svg>
     </div>
   </header>
 );
