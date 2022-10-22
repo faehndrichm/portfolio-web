@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
+import Tilt from "react-parallax-tilt";
 import SvgBackground from "../assets/ccchaos.svg";
 import ProfileImage from "../assets/profile.jpg";
+
 export default function Home() {
   return (
     <div className="bg-gray-800 flex justify-center">
@@ -12,60 +14,80 @@ export default function Home() {
       </Head>
 
       <main className="w-full max-w-6xl mx-6">
-        <div id="hero" className="py-32">
-          <div className="flex flex-row justify-between">
-            <div className="flex-1 p-3">
-              <h1 className="text-5xl text-white mb-3">Marco Fähndrich</h1>
-              <h3 className="text-xl text-white">
+        <div id="hero" className="pt-32">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:flex-1 p-3">
+              <h1 className="font-ps2p text-3xl md:text-5xl text-white mb-3">Marco Fähndrich</h1>
+              <h3 className="text-lg md:text-xl text-white">
                 Genie der Neuzeit - Klein in denen unter er sahen um. Ochsen storen kam gru mag sto
-                bitter. Ehe mag eberhard kurioses spateren nirgends.{" "}
+                bitter. Ehe mag eberhard kurioses spateren nirgends.
               </h3>
               <div className="flex gap-3 mt-6">
-                <button className="font-sans bg-gradient-to-r from-purple-500 to-yellow-500 text-white px-8 py-3 shadow-md rounded-full text-xl font-semibold flex flex-row items-center justify-between gap-6">
+                <button className="font-montserat  hover:shadow-lg hover:shadow-white/50 bg-gradient-to-r from-purple-500 to-yellow-500 text-white px-8 py-3 rounded-full text-lg font-semibold flex flex-row items-center justify-between gap-6">
                   Klick
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="3.5"
                     stroke="currentColor"
                     className="w-6 h-6">
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M8.25 4.5l7.5 7.5-7.5 7.5"
                     />
                   </svg>
                 </button>
-                <button className="bg-white text-gray-700 px-8 py-3 shadow-md rounded-full text-xl font-semibold flex flex-row items-center gap-6">
+                <button className="font-montserat bg-white text-gray-700 px-8 py-3 hover:shadow-lg hover:shadow-white/50 rounded-full text-lg font-semibold flex flex-row items-center gap-6">
                   Klack
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="3.5"
                     stroke="currentColor"
                     className="w-6 h-6">
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M8.25 4.5l7.5 7.5-7.5 7.5"
                     />
                   </svg>
                 </button>
               </div>
             </div>
-            <div className="flex-2 relative flex items-center justify-center">
-              <div className="absolute ">
-                <Image src={SvgBackground} height={800} width={800} alt="Vercel Logo" />
+            <div className="md:flex-2  grid grid-cols-3 grid-rows-3 items-center justify-center">
+              <div className="row-start-1 row-end-4 col-start-1 col-end-4">
+                <Image src={SvgBackground} height={800} width={800} alt="Background Shapes" />
               </div>
-              <Image
-                className="rounded-full p-6 rotate-45"
-                height={300}
-                width={300}
-                src={ProfileImage}
-                alt="Vercel Logo"
-              />
+
+              <div className="md:hidden mx-auto row-start-2 row-end-3 col-start-2 col-end-3">
+                <Tilt>
+                  <Image
+                    className="rounded-full p-6 rotate-45 "
+                    height={150}
+                    width={150}
+                    layout="fixed"
+                    sizes=""
+                    src={ProfileImage}
+                    alt="Profile Picture"
+                  />
+                </Tilt>
+              </div>
+              <div className="md:block hidden mx-auto row-start-2 row-end-3 col-start-2 col-end-3">
+                <Tilt>
+                  <Image
+                    className="rounded-full p-6 rotate-45"
+                    height={300}
+                    width={300}
+                    layout="fixed"
+                    sizes=""
+                    src={ProfileImage}
+                    alt="Profile Picture"
+                  />
+                </Tilt>
+              </div>
             </div>
           </div>
         </div>
@@ -84,24 +106,24 @@ export default function Home() {
           </div>
           <div className="flex-1 relative flex flex-row justify-evenly">
             <div>
-              <div className="bg-purple-500 drop-shadow-md-white mx-2 w-12 h-full rounded-full"></div>
-              <div className="absolute top-0 bg-white  drop-shadow-md-white rounded-full w-16 h-16"></div>
+              <div className="bg-purple-500 drop-shadow-md-white mx-auto w-6 h-full rounded-full"></div>
+              <div className="absolute top-0 bg-white  drop-shadow-md-white rounded-full w-12 h-12"></div>
               <div className="sticky bottom-0 bg-gray-800 rounded-t-full">
-                <div className=" bg-white drop-shadow-md-white rounded-full w-16 h-16"></div>
+                <div className=" bg-white drop-shadow-md-white rounded-full w-12 h-12"></div>
               </div>
             </div>
             <div>
-              <div className="bg-emerald-500 drop-shadow-md-white mx-2 w-12 h-full rounded-full"></div>
-              <div className="absolute top-0 bg-white drop-shadow-md-white rounded-full w-16 h-16"></div>
+              <div className="bg-emerald-500 drop-shadow-md-white mx-auto w-6 h-full rounded-full"></div>
+              <div className="absolute top-0 bg-white drop-shadow-md-white rounded-full w-12 h-12"></div>
               <div className="sticky bottom-0 bg-gray-800 rounded-t-full">
-                <div className=" bg-white drop-shadow-md-white rounded-full w-16 h-16"></div>
+                <div className=" bg-white drop-shadow-md-white rounded-full w-12 h-12"></div>
               </div>
             </div>
             <div>
-              <div className="bg-orange-500 drop-shadow-md-white mx-2 w-12 h-full rounded-full"></div>
-              <div className="absolute top-0 bg-white drop-shadow-md-white rounded-full w-16 h-16"></div>
+              <div className="bg-orange-500 drop-shadow-md-white mx-auto w-6 h-full rounded-full"></div>
+              <div className="absolute top-0 bg-white drop-shadow-md-white rounded-full w-12 h-12"></div>
               <div className="sticky bottom-0 bg-gray-800 rounded-t-full">
-                <div className=" bg-white drop-shadow-md-white rounded-full w-16 h-16"></div>
+                <div className=" bg-white drop-shadow-md-white rounded-full w-12 h-12"></div>
               </div>
             </div>
           </div>

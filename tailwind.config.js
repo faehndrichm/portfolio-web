@@ -3,6 +3,10 @@ module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        ps2p: ["'Press Start 2P'"],
+        montserat: "Montserrat",
+      },
       flex: {
         2: "2 2 0%",
       },
