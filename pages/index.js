@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-full max-w-6xl mx-6">
+      <article className="w-full max-w-6xl mx-6">
         <div id="hero" className="pt-32">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:flex-1 p-3">
@@ -128,7 +128,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </main>
+      </article>
     </div>
   );
 }
