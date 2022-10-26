@@ -1,3 +1,3 @@
 export default function Projects() {
-  return <article>asdasd</article>;
+  return <article>projects</article>;
 }

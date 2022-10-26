@@ -1,3 +1,3 @@
 export default function More() {
-  return <article>asdasd</article>;
+  return <article>more</article>;
 }
