@@ -8,15 +8,18 @@ import { useState } from "react";
     setHidden(!hidden);
   };
     const [hidden, setHidden] = useState(false);
+
+
+
   return (
-    <header className="flex-none fixed z-10 w-full bg-gray-800 shadow-white/20 shadow-lg text-white text-xl flex justify-center p-3 ">
-      <div className="max-w-6xl w-full mx-6 flex gap-3 md:items-center justify-between">
+    <header className="backdrop-blur-lg flex-none fixed z-10 w-full text-white text-xl flex justify-center">
+      <div className="border-b border-gray-500/25 max-w-6xl w-full mx-6 flex gap-3 md:items-center justify-between py-2">
         <div className="mr-auto font-bold cursor-pointer text-3xl transition ease-in-out delay-150 hover:scale-110 hover:text-purple-600">
           <Link href="/">MF</Link>
         </div>
         <div
           className={
-            " flex-col md:flex-row  gap-3 items-center " + (hidden ? "hidden md:flex" : "flex")
+            "flex-col md:flex-row  gap-3 items-center " + (hidden ? "hidden md:flex" : "flex")
           }>
           <div className="text-base font-bold p-3 underline-offset-4 cursor-pointer hover:underline">
             <Link href="/algos">Lustige Algos</Link>
