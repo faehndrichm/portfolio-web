@@ -19,8 +19,8 @@ for(let i = 0; i < 20; i++){
     height: randInt(100, 200),
     width: randInt(100, 200),
     speed: (Math.random()-0.5)*2,
-    row: randInt(1, 6),
-    col: randInt(1, 6),
+    row: randInt(1, 21),
+    col: randInt(1, 21),
     offset: randInt(0, 2),
   });
 }
@@ -32,8 +32,8 @@ for(let i = 0; i < 20; i++){
           key={i}
           offset={b.offset}
           speed={b.speed}
-          className="grid grid-cols-5 grid-rows-5">
-          <div className={`col-start-${b.col} row-start-${b.row}`}>
+          className="grid grid-cols-[repeat(20,_minmax(0,_1fr))] grid-rows-[repeat(20,_minmax(0,_1fr))]">
+          <div className={`col-start-[${b.col}] row-start-[${b.row}]`}>
             <Image
               className=""
               height={b.height}
@@ -46,17 +46,17 @@ for(let i = 0; i < 20; i++){
           </div>
         </ParallaxLayer>
       ))}
-      <article className="z-50 relative pt-32 flex justify-center">
-        <div className="max-w-6xl">
+      <article className="relative z-50 flex justify-center pt-32">
+        <div className="mx-6 max-w-6xl">
           <section className="my-24">
             <h2>
-              <div class="flex flex-col gap-6 mb-6 lg:items-center lg:flex-row-reverse">
+              <div class="mb-6 flex flex-col gap-6 lg:flex-row-reverse lg:items-center">
                 <div class="flex-1">
-                  <p class="text-blue-400 font-medium uppercase text-lg mb-4 font-poppins">walls</p>
-                  <h2 class="font-quicksand text-blue-300 font-bold text-3xl md:text-4xl mb-4">
+                  <p class="font-poppins mb-4 text-lg font-medium uppercase text-blue-400">walls</p>
+                  <h2 class="font-quicksand mb-4 text-3xl font-bold text-blue-300 md:text-4xl">
                     Use securing confined his shutters
                   </h2>
-                  <p class="text-white text-lg mt-2 font-poppins mb-3">
+                  <p class="font-poppins mt-2 mb-3 text-lg text-white">
                     Greatly hearted has who believe. Drift allow green son walls years for blush.
                     Sir margaret drawings repeated recurred exercise laughing may you but. Do
                     repeated whatever to welcomed absolute no. Fat surprise although outlived and
@@ -64,7 +64,7 @@ for(let i = 0; i < 20; i++){
                     we stand avoid decay heard mr. Common so wicket appear to sudden worthy on.
                     Shade of offer ye whole stood hoped.
                   </p>
-                  <p class="text-white text-lg mt-2 font-poppins mb-3">
+                  <p class="font-poppins mt-2 mb-3 text-lg text-white">
                     He as compliment unreserved projecting. Between had observe pretend delight for
                     believe. Do newspaper questions consulted sweetness do. Our sportsman his
                     unwilling fulfilled departure law. Now world own total saved above her cause
@@ -72,7 +72,7 @@ for(let i = 0; i < 20; i++){
                     cousins warrant law explain for whether.
                   </p>
                 </div>
-                <div class="flex-1 mx-auto flex justify-center">
+                <div class="mx-auto flex flex-1 justify-center">
                   <Image
                     className=""
                     height={250}
@@ -88,8 +88,8 @@ for(let i = 0; i < 20; i++){
           </section>
           <section className="my-24">
             <h2>
-              <div class="flex flex-col gap-6  mb-6 lg:items-center lg:flex-row-reverse">
-                <div class="flex-1 mx-auto flex justify-center">
+              <div class="mb-6 flex flex-col  gap-6 lg:flex-row-reverse lg:items-center">
+                <div class="mx-auto flex flex-1 justify-center">
                   <Image
                     className=""
                     height={250}
@@ -101,20 +101,20 @@ for(let i = 0; i < 20; i++){
                   />
                 </div>
                 <div class="flex-1">
-                  <p class="text-blue-400 font-medium uppercase text-lg mb-4 font-poppins">
+                  <p class="font-poppins mb-4 text-lg font-medium uppercase text-blue-400">
                     basket
                   </p>
-                  <h2 class="font-quicksand text-blue-300 font-bold text-3xl md:text-4xl mb-4">
+                  <h2 class="font-quicksand mb-4 text-3xl font-bold text-blue-300 md:text-4xl">
                     Thrown shy denote ten ladies
                   </h2>
-                  <span class="text-white text-lg mt-2 font-poppins"></span>
-                  <p class="text-white text-lg mt-2 font-poppins mb-3">
+                  <span class="font-poppins mt-2 text-lg text-white"></span>
+                  <p class="font-poppins mt-2 mb-3 text-lg text-white">
                     Turned it up should no valley cousin he. Speaking numerous ask did horrible
                     packages set. Ashamed herself has distant can studied mrs. Led therefore its
                     middleton perpetual fulfilled provision frankness. Small he drawn after among
                     every three no. All having but you edward genius though remark one.
                   </p>
-                  <p class="text-white text-lg mt-2 font-poppins mb-3">
+                  <p class="font-poppins mt-2 mb-3 text-lg text-white">
                     Placing assured be if removed it besides on. Far shed each high read are men
                     over day. Afraid we praise lively he suffer family estate is. Ample order up in
                     of in ready. Timed blind had now those ought set often which. Or snug dull he
@@ -128,24 +128,24 @@ for(let i = 0; i < 20; i++){
           </section>
           <section className="my-24">
             <h2>
-              <div class="flex flex-col gap-6  mb-6 lg:items-center lg:flex-row-reverse">
+              <div class="mb-6 flex flex-col  gap-6 lg:flex-row-reverse lg:items-center">
                 <div class="flex-1">
-                  <p class="text-blue-400 font-medium uppercase text-lg mb-4 font-poppins">
+                  <p class="font-poppins mb-4 text-lg font-medium uppercase text-blue-400">
                     general
                   </p>
-                  <h2 class="font-quicksand text-blue-300 font-bold text-3xl md:text-4xl mb-4">
+                  <h2 class="font-quicksand mb-4 text-3xl font-bold text-blue-300 md:text-4xl">
                     He connection interested so we
                   </h2>
-                  <span class="text-white text-lg mt-2 font-poppins">
+                  <span class="font-poppins mt-2 text-lg text-white">
                     Of resolve to gravity thought my prepare chamber so. Unsatiable entreaties
                     collecting may sympathize nay interested instrument. If continue building
                     numerous of at relation in margaret. Lasted engage roused mother an am at. Other
                     early while if by do to. Missed living excuse as be. Cause heard fat above first
                     shall for.
                   </span>
-                  <p class="text-white text-lg mt-2 font-poppins mb-3"> </p>
+                  <p class="font-poppins mt-2 mb-3 text-lg text-white"> </p>
                 </div>
-                <div class="flex-1 mx-auto flex justify-center">
+                <div class="mx-auto flex flex-1 justify-center">
                   <Image
                     className=""
                     height={250}
@@ -161,8 +161,8 @@ for(let i = 0; i < 20; i++){
           </section>
           <section className="my-24">
             <h2>
-              <div class="flex flex-col gap-6  mb-6 lg:items-center lg:flex-row-reverse">
-                <div class="flex-1 mx-auto flex justify-center">
+              <div class="mb-6 flex flex-col  gap-6 lg:flex-row-reverse lg:items-center">
+                <div class="mx-auto flex flex-1 justify-center">
                   <Image
                     className=""
                     height={250}
@@ -174,19 +174,19 @@ for(let i = 0; i < 20; i++){
                   />
                 </div>
                 <div class="flex-1">
-                  <p class="text-blue-400 font-medium uppercase text-lg mb-4 font-poppins">
+                  <p class="font-poppins mb-4 text-lg font-medium uppercase text-blue-400">
                     attention
                   </p>
-                  <h2 class="font-quicksand text-blue-300 font-bold text-3xl md:text-4xl mb-4">
+                  <h2 class="font-quicksand mb-4 text-3xl font-bold text-blue-300 md:text-4xl">
                     Far concluded not his something extremity
                   </h2>
-                  <p class="text-white text-lg mt-2 font-poppins mb-3">
+                  <p class="font-poppins mt-2 mb-3 text-lg text-white">
                     Dispatched entreaties boisterous say why stimulated. Certain forbade picture now
                     prevent carried she get see sitting. Up twenty limits as months. Inhabit so
                     perhaps of in to certain. Sex excuse chatty was seemed warmth. Nay add far few
                     immediate sweetness earnestly dejection. Whole every miles as tiled at seven or.
                   </p>
-                  <p class="text-white text-lg mt-2 font-poppins">
+                  <p class="font-poppins mt-2 text-lg text-white">
                     Wished he entire esteem mr oh by. Possible bed you pleasure civility boy
                     elegance ham. He prevent request by if in pleased. Picture too and concern has
                     was comfort. Ten difficult resembled eagerness nor. Same park bore on be. Warmth
