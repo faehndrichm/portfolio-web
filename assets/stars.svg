@@ -1,10 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg">
-    <filter id="filter">
-        <feTurbulence baseFrequency="0.2"/>
-        <feColorMatrix values="0 0 0 9 -4
-                               0 0 0 9 -4
-                               0 0 0 9 -4
-                               0 0 0 0 1"/>
-    </filter>
-    <rect width="100%" height="100%" filter="url(#filter)"/>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800">
+<circle r="1.1" cx="613" cy="439" fill="hsl(233, 15%, 60%)" opacity="0.25"></circle>
+<circle r="1.5" cx="145" cy="606" fill="hsl(283, 15%, 60%)" opacity="0.29"></circle>
+<circle r="1.5" cx="689" cy="758" fill="hsl(239, 15%, 60%)" opacity="0.69"></circle>
+<circle r="1.0" cx="692" cy="34" fill="hsl(229, 15%, 60%)" opacity="0.94"></circle>
+<circle r="1.5" cx="295" cy="105" fill="hsl(266, 15%, 60%)" opacity="0.73"></circle>
+<circle r="1.2" cx="21" cy="111" fill="hsl(266, 15%, 60%)" opacity="0.26"></circle>
+<circle r="1.5" cx="78" cy="386" fill="hsl(276, 15%, 60%)" opacity="0.48"></circle>
+<circle r="2.9" cx="671" cy="450" fill="hsl(235, 15%, 60%)" opacity="0.29"></circle>
+<circle r="2.9" cx="496" cy="622" fill="hsl(240, 15%, 60%)" opacity="0.16"></circle>
+<circle r="1.5" cx="724" cy="423" fill="hsl(244, 15%, 60%)" opacity="0.86"></circle>
+<circle r="1.5" cx="773" cy="183" fill="hsl(255, 15%, 60%)" opacity="0.37"></circle>
+<circle r="1.5" cx="424" cy="760" fill="hsl(246, 15%, 60%)" opacity="0.36"></circle>
+<circle r="2.1" cx="267" cy="194" fill="hsl(274, 15%, 60%)" opacity="0.47"></circle>
+<circle r="3.5" cx="494" cy="12" fill="hsl(228, 15%, 60%)" opacity="0.26"></circle>
+<circle r="1.5" cx="377" cy="107" fill="hsl(250, 15%, 60%)" opacity="0.24"></circle>
+<circle r="1.2" cx="234" cy="590" fill="hsl(280, 15%, 60%)" opacity="0.63"></circle>
+<circle r="1.5" cx="237" cy="775" fill="hsl(280, 15%, 60%)" opacity="0.98"></circle>
+<circle r="1.5" cx="768" cy="385" fill="hsl(259, 15%, 60%)" opacity="0.33"></circle>
+<circle r="1.5" cx="474" cy="186" fill="hsl(243, 15%, 60%)" opacity="0.73"></circle>
+<circle r="1.5" cx="146" cy="527" fill="hsl(283, 15%, 60%)" opacity="0.12"></circle>
 </svg>

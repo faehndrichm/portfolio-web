@@ -52,8 +52,12 @@ module.exports = {
       flex: {
         2: "2 2 0%",
       },
+      boxShadow: {
+        "blacky": "0 0 0 99999px rgba(0, 0, 0, .8)"
+      },
       dropShadow: {
         "md-white": ["0 4px 3px rgb(255 255 255 / 0.47)", "0 2px 2px rgb(255 255 255 / 0.36)"],
+        planet: ["-6px -6px 10px rgb(255 255 255 / 0.35)", "-2px -2px 2px rgb(255 255 255 / 0.2)"],
       },
     },
   },
