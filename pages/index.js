@@ -245,24 +245,24 @@ export default function Home() {
               </div>
               <div className="relative flex flex-1 flex-row justify-evenly">
                 <div>
-                  <div className="mx-auto h-full w-6 rounded-full bg-blue-300 drop-shadow-md-white"></div>
-                  <div className="absolute top-0 h-12  w-12 rounded-full bg-white drop-shadow-md-white"></div>
+                  <div className="mx-auto h-full w-6 rounded-full bg-blue-300 "></div>
+                  <div className="absolute top-0 h-12  w-12 rounded-full bg-white "></div>
                   <div className="sticky bottom-0 rounded-t-full bg-gray-800">
-                    <div className=" h-12 w-12 rounded-full bg-white drop-shadow-md-white"></div>
+                    <div className=" h-12 w-12 rounded-full bg-white "></div>
                   </div>
                 </div>
                 <div>
-                  <div className="mx-auto h-full w-6 rounded-full bg-indigo-900 drop-shadow-md-white"></div>
-                  <div className="absolute top-0 h-12 w-12 rounded-full bg-white drop-shadow-md-white"></div>
+                  <div className="mx-auto h-full w-6 rounded-full bg-indigo-900 "></div>
+                  <div className="absolute top-0 h-12 w-12 rounded-full bg-white "></div>
                   <div className="sticky bottom-0 rounded-t-full bg-gray-800">
-                    <div className=" h-12 w-12 rounded-full bg-white drop-shadow-md-white"></div>
+                    <div className=" h-12 w-12 rounded-full bg-white "></div>
                   </div>
                 </div>
                 <div>
-                  <div className="mx-auto h-full w-6 rounded-full bg-blue-900 drop-shadow-md-white"></div>
-                  <div className="absolute top-0 h-12 w-12 rounded-full bg-white drop-shadow-md-white"></div>
+                  <div className="mx-auto h-full w-6 rounded-full bg-blue-900 "></div>
+                  <div className="absolute top-0 h-12 w-12 rounded-full bg-white "></div>
                   <div className="sticky bottom-0 rounded-t-full bg-gray-800">
-                    <div className=" h-12 w-12 rounded-full bg-white drop-shadow-md-white"></div>
+                    <div className=" h-12 w-12 rounded-full bg-white "></div>
                   </div>
                 </div>
               </div>
