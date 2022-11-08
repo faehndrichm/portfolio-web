@@ -48,16 +48,40 @@ module.exports = {
       fontFamily: {
         ps2p: ["'Press Start 2P'"],
         montserat: "Montserrat",
+        nunito: "Nunito",
+        inconsolata: "Inconsolata",
+        lora: "Lora",
       },
       flex: {
         2: "2 2 0%",
       },
       boxShadow: {
-        "blacky": "0 0 0 99999px rgba(0, 0, 0, .8)"
+        blacky: "0 0 0 99999px rgba(0, 0, 0, .8)",
       },
       dropShadow: {
         "md-white": ["0 4px 3px rgb(255 255 255 / 0.47)", "0 2px 2px rgb(255 255 255 / 0.36)"],
         planet: ["-6px -6px 10px rgb(255 255 255 / 0.35)", "-2px -2px 2px rgb(255 255 255 / 0.2)"],
+      },
+      gridTemplateRows: {
+        12: "repeat(12, minmax(0, 1fr))",
+      },
+      gridRowStart: {
+        7: "7",
+        8: "8",
+        9: "9",
+        10: "10",
+        11: "11",
+        12: "12",
+        13: "13",
+      },
+      gridRowEnd: {
+        7: "7",
+        8: "8",
+        9: "9",
+        10: "10",
+        11: "11",
+        12: "12",
+        13: "13",
       },
     },
   },
