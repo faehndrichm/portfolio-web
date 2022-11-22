@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import React, { useState } from "react";
 import Waves from "../assets/gravity_waves.svg";
 import Waves2 from "../assets/gravity_waves2.svg";
 import Arrows from "../assets/logo/arrows.png";
@@ -13,6 +14,8 @@ import ProfileImage from "../assets/pic5.png";
 import Stars from "../assets/stars.svg";
 
 export default function Home() {
+  const [moonClass, setMoonClass] = useState("opacity-0 top-20");
+  const [starClass, setStarClass] = useState("scale-50");
 
   let transition =
     " transition-all delay-150 ease-in-out hover:z-10 hover:scale-150   hover:shadow-xl hover:shadow-white/20 duration-300";
@@ -28,30 +31,40 @@ export default function Home() {
         </Head>
 
         <div
-          className="absolute inset-0 h-screen w-screen"
+          className={`${starClass} absolute inset-0 h-screen w-screen transition-transform delay-150 duration-1000 ease-out`}
           style={{ backgroundImage: `url(${Stars.src})` }}></div>
 
         <div className="relative flex w-full justify-center overflow-hidden">
-          <div className="absolute top-0 h-[60%] w-full opacity-50">
-            <Image src={Moon} layout="fill" objectFit="contain" alt="Moon" />
+          <div
+            className={`${moonClass} absolute h-[60%]  w-full transition-[top,_opacity]  delay-150 duration-1000 ease-out`}>
+            <Image
+              src={Moon}
+              onLoadingComplete={(img) => {
+                setMoonClass("opacity-50 top-0");
+                setStarClass("scale-100");
+              }}
+              layout="fill"
+              objectFit="contain"
+              alt="Moon"
+            />
           </div>
           <div className="absolute bottom-0 h-64 w-full">
             <Image src={Waves} layout="fill" alt="waves" />
           </div>
 
-          <div className="mx-6 w-full max-w-6xl">
+          <div className="mx-6 w-full max-w-7xl">
             <section id="hero" className=" my-24 flex items-center md:my-6 md:h-screen">
               <div className="z-10 flex flex-col items-stretch gap-12 md:flex-row">
                 <div className="p-3 md:flex-1">
-                  <h1 className="mb-3 font-ps2p text-3xl font-bold text-white md:text-5xl">
+                  <h1 className="mb-3 bg-gradient-to-r from-indigo-300 to-cyan-200 bg-clip-text font-ps2p text-3xl text-transparent  text-white md:text-6xl">
                     Marco Fähndrich
                   </h1>
-                  <h3 className="font-nunito text-lg text-white md:text-2xl">
+                  <h3 className="font-nunito text-[1.5rem] leading-relaxed  text-slate-300">
                     Ich muss dir was ganz wichtiges sagen. Ich könnts dir jetzt sagen, aber ich sags
                     dir lieber morgen.
                   </h3>
                   <div className="mt-6 flex gap-3">
-                    <button className="flex  flex-row items-center justify-between gap-6 rounded-xl bg-blue-200 px-8 py-3 font-montserat text-lg font-semibold text-gray-900 hover:shadow-lg hover:shadow-white/50">
+                    <button className="flex flex-row items-center justify-between gap-6 rounded-full bg-indigo-200 px-9 py-3 font-montserat text-2xl font-bold text-slate-800 hover:shadow-lg hover:shadow-white/50">
                       Klick
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +80,7 @@ export default function Home() {
                         />
                       </svg>
                     </button>
-                    <button className="flex flex-row items-center gap-6 rounded-xl bg-white px-8 py-3 font-montserat text-lg font-semibold text-gray-700 hover:shadow-lg hover:shadow-white/50">
+                    <button className="flex flex-row items-center gap-6 rounded-full bg-white px-9 py-3 font-montserat text-2xl font-semibold text-slate-800 hover:shadow-lg hover:shadow-white/50">
                       Klack
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -193,29 +206,29 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="justify-stretch relative flex w-full flex-col items-center bg-[#324773]">
+        <div className="justify-stretch relative flex w-full flex-col items-center bg-[#161F33]">
           <div className="absolute bottom-0 h-64 w-full">
             <Image src={Waves2} layout="fill" alt="waves" />
           </div>
 
           <section className="w-full max-w-6xl">
-            <div className="relative flex flex-col md:flex-row h-96 w-full items-end justify-end overflow-hidden rounded-3xl ">
-              <div className="absolute flex md:h-72 w-full items-center rounded-3xl bg-blue-200 p-6 pr-72">
+            <div className="relative flex h-96 w-full flex-col items-end justify-end overflow-hidden rounded-3xl md:flex-row ">
+              <div className="absolute flex w-full items-center rounded-3xl bg-gradient-to-r from-indigo-300 to-cyan-200 p-6 pr-72 md:h-72">
                 <div className="flex flex-col items-start gap-3">
-                  <h2 className="font-nunito text-4xl font-semibold text-blue-900">
+                  <h2 className="font-montserat text-4xl font-bold text-slate-800">
                     Ich bin einfach der Coolste
                   </h2>
-                  <p className="font-nunito text-xl text-gray-800">
+                  <p className="font-nunito text-2xl text-slate-800 max-w-3xl">
                     Or neglected agreeable of discovery concluded oh it sportsman. Week to time in
                     john. Son elegance use weddings separate.
                   </p>
-                  <button className="flex  flex-row items-center justify-between gap-6 rounded-xl bg-indigo-900 px-8 py-3 font-montserat text-lg font-semibold text-white  hover:shadow-lg hover:shadow-violet-600/50">
+                  <button className="flex  flex-row items-center justify-between gap-6 rounded-full bg-slate-800 px-8 py-3 font-montserat text-lg font-semibold text-white hover:shadow-lg hover:shadow-black/50">
                     Call me maybe
                   </button>
                 </div>
               </div>
               <div className="relative flex">
-                <div className="absolute bottom-0 h-72 w-72 rounded-t-full bg-indigo-900"></div>
+                {/* <div className="absolute bottom-0 h-72 w-72 rounded-t-full bg-[#161F33]"></div> */}
                 <Image
                   layout="fixed"
                   height={380}
