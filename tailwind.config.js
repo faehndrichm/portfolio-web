@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   safelist: [
     "col-start-[1]",
     "col-start-[2]",
@@ -46,11 +50,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        ps2p: ["'Press Start 2P'"],
-        montserat: "Montserrat",
-        nunito: "Nunito",
-        inconsolata: "Inconsolata",
-        lora: "Lora",
+        montserat: "var(--montserrat-font)",
+        ps2p: "var(--ps2p-font)",
+        nunito: "var(--nunito-font)",
+        inconsolata: "var(--inconsolata-font)",
       },
       flex: {
         2: "2 2 0%",
@@ -87,4 +90,3 @@ module.exports = {
   },
   plugins: [],
 };
-

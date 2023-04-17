@@ -1,7 +1,8 @@
+"use client";
+
 import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
-import React, { forwardRef, Fragment } from "react";
-
+import { default as React, forwardRef, Fragment, useRef, useState } from "react";
 
 const MyLink = forwardRef((props, ref) => {
   let { href, children, ...rest } = props;
@@ -13,24 +14,28 @@ const MyLink = forwardRef((props, ref) => {
     </Link>
   );
 });
-MyLink.displayName ="MyLink";
+MyLink.displayName = "MyLink";
 
 export default function Header() {
+  const [showSearch, setShowSearch] = useState(false);
+
+  const searchInput = useRef(null);
+
+  function setInputFocus() {
+    searchInput.current.focus();
+  }
   const links = [
-    { text: "Algorithmen", href: "/algos" },
-    { text: "Projekte", href: "/projects" },
-    { text: "Meine Hobbys", href: "/hobbies" },
-    { text: "Über mich", href: "/about" },
-    { text: "Sonstiges", href: "/more" },
+    { text: "Projects", href: "/projects" },
+    { text: "About", href: "/about" },
   ];
 
   return (
-    <header className="sticky top-0 z-20 flex h-14 w-full justify-center bg-gray-900 bg-opacity-50 text-xl text-white backdrop-blur-lg">
-      <div className="mx-6 flex w-full max-w-6xl items-center justify-between gap-3 border-b border-gray-500/25 py-2">
+    <header className="sticky top-0 z-20 flex h-14 w-full justify-center bg-gray-950 bg-opacity-50 text-xl text-white backdrop-blur-lg">
+      <div className="relative mx-6 flex w-full max-w-6xl items-center justify-between gap-3 border-b border-gray-500/25 py-2">
         <div className="mr-auto cursor-pointer text-3xl font-bold transition delay-150 ease-in-out hover:scale-110">
           <Link href="/">MF</Link>
         </div>
-        <div className="hidden flex-row items-center gap-3 md:flex">
+        <div className={`${showSearch ? "" : "md:flex"}  hidden flex-row items-center gap-3`}>
           {links.map((link, i) => (
             <div
               key={i}
@@ -39,9 +44,24 @@ export default function Header() {
             </div>
           ))}
         </div>
+        <div
+          className={`${
+            showSearch ? "w-3/4" : "w-0"
+          } absolute right-0 my-1 flex h-3/4 items-center overflow-hidden rounded-full bg-gray-800/50 transition-[width] delay-150 duration-300`}>
+          <input
+            placeholder="Search for anything..."
+            type="text"
+            ref={searchInput}
+            className="ml-6 appearance-none border-none bg-transparent font-inconsolata  text-white outline-none ring-0 "
+          />
+        </div>
         <svg
           className="ml-auto h-6 w-6 cursor-pointer transition delay-100 ease-in-out hover:scale-125 "
           fill="none"
+          onClick={() => {
+            setShowSearch(!showSearch);
+            setInputFocus();
+          }}
           stroke="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg">
@@ -75,11 +95,15 @@ export default function Header() {
             leave="transition ease-in duration-75"
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95">
-            <Menu.Items as="nav" className="absolute top-14 left-0 flex w-full flex-col items-stretch gap-3 bg-gray-900 bg-opacity-50 px-6 py-4 text-xl text-white backdrop-blur-lg">
+            <Menu.Items
+              as="nav"
+              className="absolute left-0 top-14 flex w-full flex-col items-stretch gap-3 bg-gray-950 bg-opacity-50 px-6 py-4 text-xl text-white backdrop-blur-lg">
               {links.map((link) => (
                 <Menu.Item key={link.href} as={Fragment} className=" text-center">
                   {({ active }) => (
-                      <MyLink className="text-red-600" href={link.href}>{link.text}</MyLink>
+                    <MyLink className="text-red-600" href={link.href}>
+                      {link.text}
+                    </MyLink>
                   )}
                 </Menu.Item>
               ))}
