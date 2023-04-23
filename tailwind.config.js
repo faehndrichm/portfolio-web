@@ -62,6 +62,9 @@ module.exports = {
         blacky: "0 0 0 99999px rgba(0, 0, 0, .8)",
       },
       dropShadow: {
+        "xl-orange": ["0 20px 13px rgb(0 0 0 / 0.03)", "0 8px 5px rgb(0 0 0 / 0.08)"],
+        "xl-purple": ["0 20px 13px rgb(0 0 0 / 0.03)", "0 8px 5px rgb(0 0 0 / 0.08)"],
+        "xl-pink": ["0 20px 13px rgb(0 0 0 / 0.03)", "0 8px 5px rgb(0 0 0 / 0.08)"],
         "md-white": ["0 4px 3px rgb(255 255 255 / 0.47)", "0 2px 2px rgb(255 255 255 / 0.36)"],
         planet: ["-6px -6px 10px rgb(255 255 255 / 0.35)", "-2px -2px 2px rgb(255 255 255 / 0.2)"],
       },

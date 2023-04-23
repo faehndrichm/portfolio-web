@@ -1,6 +1,6 @@
 import { supabase } from "../lib/supabaseClient";
 import React from "react";
-import CVLine from "./cv-line";
+import CVProjectSvg from "./cv-project";
 export default async function CV() {
   let { data, status, statusText } = await supabase.from("experience").select("*");
   let experiences = [];
@@ -11,19 +11,27 @@ export default async function CV() {
       from: new Date(d.from_date),
     }));
   }
-
+  experiences.forEach((e, i) => {
+    if (e.id === 11) {
+      //TODO: refine structure
+      experiences[i].offset = {
+        from: 2020,
+        to: 2021,
+        value: 1,
+      };
+    }
+  });
+  let colors = ["#d97706", "#4338ca", "#a21caf"];
+  let colorsEnd = ["#f59e0b", "#6366f1", "#e879f9"];
   let items = [...Array(30).keys()];
+  let minDate = new Date("1995");
+  let maxDate = new Date();
   return (
     <div className=" bg-gray flex w-full flex-col items-center justify-stretch">
-      <div className="bg-blue-300"></div>
-      <div className="bg-indigo-900"></div>
-      <div className="bg-blue-900"></div>
       <section className="w-full max-w-6xl">
         <h2 className="font-white text-center font-nunito text-6xl text-white">CV</h2>
         <div className="grid auto-rows-[4rem] grid-cols-[2rem_repeat(3,minmax(0,1fr))] place-items-stretch gap-1 py-24">
-          <div
-            key={-3}
-            className="col-start-2 m-auto grid grid-cols-1 grid-rows-1 place-items-center">
+          <div className="col-start-2 m-auto grid grid-cols-1 grid-rows-1 place-items-center">
             <div className="z-10 flex flex-row gap-3 font-nunito text-2xl font-bold text-white [grid-area:1/1/span_1/span_1]">
               Education
               <svg
@@ -40,9 +48,9 @@ export default async function CV() {
                 />
               </svg>
             </div>
-            <div className="h-full w-full bg-blue-300/50 blur-xl [grid-area:1/1/span_1/span_1]"></div>
+            <div className=" h-full w-full rounded-full bg-amber-300/50 blur-xl [grid-area:1/1/span_1/span_1]"></div>
           </div>
-          <div key={-2} className="m-auto grid grid-cols-1 grid-rows-1 place-items-center">
+          <div className="m-auto grid grid-cols-1 grid-rows-1 place-items-center">
             <div className="z-10 flex flex-row gap-3  font-nunito text-2xl font-bold text-white [grid-area:1/1/span_1/span_1]">
               Projects
               <svg
@@ -59,9 +67,9 @@ export default async function CV() {
                 />
               </svg>
             </div>
-            <div className="h-full w-full bg-blue-900/75 blur-xl [grid-area:1/1/span_1/span_1]"></div>
+            <div className=" h-full w-full rounded-full bg-indigo-600/75 blur-xl [grid-area:1/1/span_1/span_1]"></div>
           </div>
-          <div key={-1} className="m-auto grid grid-cols-1 grid-rows-1 place-items-center">
+          <div className="m-auto grid grid-cols-1 grid-rows-1 place-items-center">
             <div className="z-10 flex flex-row gap-3 font-nunito text-2xl font-bold text-white [grid-area:1/1/span_1/span_1]">
               Work Experience
               <svg
@@ -78,75 +86,98 @@ export default async function CV() {
                 />
               </svg>
             </div>
-            <div className="h-full w-full bg-indigo-900/75 blur-xl [grid-area:1/1/span_1/span_1]"></div>
+            <div className=" h-full w-full rounded-full bg-pink-600/75 blur-xl [grid-area:1/1/span_1/span_1]"></div>
           </div>
 
           {items.map(function (i) {
             return (
-              <React.Fragment key={i}>
-                <div
-                  style={{
-                    gridRowStart: i + 2,
-                    gridRowEnd: i + 3,
-                  }}
-                  className="col-start-1 col-end-2 flex flex-row items-center ">
-                  <div className="font-bold text-white">{i + 1995}</div>
-                  <div className="ml-3 h-3 w-3 rounded-full bg-white text-white"></div>
-                  <div className="h-[1px] w-12 bg-white text-white"></div>
-                </div>
+              <div
+                key={i}
+                style={{
+                  gridRowStart: i + 2,
+                  gridRowEnd: i + 3,
+                }}
+                className="col-start-1 col-end-2 flex flex-row items-center ">
+                <div className="font-bold text-white">{i + 1995}</div>
+                <div className="ml-3 h-3 w-3 rounded-full bg-white text-white"></div>
+                <div className="h-[1px] w-12 bg-white text-white"></div>
+              </div>
+            );
+          })}
+          <div
+            className="flex h-full w-full flex-row"
+            style={{ gridArea: "2 / 2 / span 2 / span 3" }}>
+            <svg height="100%" width="100%" viewBox="0 0 2000 200">
+              <path
+                fill="none"
+                stroke="#1e293b"
+                strokeWidth="7"
+                d="m 830,10 L 830,200"
+                id="path1002"
+                strokeLinecap="round"
+              />
+              <path
+                d="M 830,10 C 645.37865,113.47256 282.47788,-27.940045 162,200"
+                stroke="#1e293b"
+                strokeWidth="7"
+                id="path4"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M 830,10 C 1014.8545,113.43844 1377.7552,-27.974161 1498.2331,200"
+                stroke="#1e293b"
+                strokeWidth="7"
+                id="path4-3"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="829.56909"
+                cy="13.072865"
+                r="10"
+                stroke="#ffffff"
+                strokeWidth="0"
+                fill="#ffffff"
+                id="circle8"
+              />
+            </svg>
+          </div>
+          <div
+            className="flex h-full w-full flex-row"
+            style={{ gridArea: "4 / 2 / span 28 / span 1" }}>
+            <svg className="flex-1" height="100%" width="100%" viewBox="0 0 100 2800">
+              <rect x="46.5" y="0" width="7" height="2796.5" fill="#1e293b"></rect>
+              <circle cx={50} cy="10" r="10" stroke="white" strokeWidth="0" fill="white" />
+            </svg>
+            <span className="flex-1"></span>
+          </div>
+          <div
+            className="flex h-full w-full flex-row"
+            style={{ gridArea: "4 / 3 / span 28 / span 1" }}>
+            <svg className="flex-1" height="100%" width="100%" viewBox="0 0 100 2800">
+              <rect x="46.5" y="0" width="7" height="2796.5" fill="#1e293b"></rect>
+              <circle cx={50} cy="10" r="10" stroke="white" strokeWidth="0" fill="white" />
+            </svg>
+            <span className="flex-1"></span>
+          </div>
+          <div
+            className="flex h-full w-full flex-row"
+            style={{ gridArea: "4 / 4 / span 28 / span 1" }}>
+            <svg className="flex-1" height="100%" width="100%" viewBox="0 0 100 2800">
+              <rect x="46.5" y="0" width="7" height="2796.5" fill="#1e293b"></rect>
+              <circle cx={50} cy="10" r="10" stroke="white" strokeWidth="0" fill="white" />
+            </svg>
+            <span className="flex-1"></span>
+          </div>
 
-                {experiences
-                  .filter(
-                    (p) =>
-                      p.category === 1 &&
-                      p.from.getFullYear() <= i + 1995 &&
-                      p.to.getFullYear() >= i + 1995
-                  )
-                  .map((p, offset) => (
-                    <CVLine
-                      key={p.id}
-                      experience={p}
-                      year={i + 1995}
-                      row={i}
-                      offset={offset}
-                      col={2}
-                      color={"blue-300"}></CVLine>
-                  ))}
-                {experiences
-                  .filter(
-                    (p) =>
-                      p.category === 0 &&
-                      p.from.getFullYear() <= i + 1995 &&
-                      p.to.getFullYear() >= i + 1995
-                  )
-                  .map((p, offset) => (
-                    <CVLine
-                      key={p.id}
-                      experience={p}
-                      year={i + 1995}
-                      row={i}
-                      col={3}
-                      offset={offset}
-                      color={"indigo-900"}></CVLine>
-                  ))}
-                {experiences
-                  .filter(
-                    (p, offset) =>
-                      p.category === 2 &&
-                      p.from.getFullYear() <= i + 1995 &&
-                      p.to.getFullYear() >= i + 1995
-                  )
-                  .map((p, offset) => (
-                    <CVLine
-                      key={p.id}
-                      experience={p}
-                      year={i + 1995}
-                      row={i}
-                      col={4}
-                      offset={offset}
-                      color={"blue-900"}></CVLine>
-                  ))}
-              </React.Fragment>
+          {experiences.map((e) => {
+            return (
+              <CVProjectSvg
+                key={e.id}
+                experience={e}
+                color={colors[e.category]}
+                colorEnd={colorsEnd[e.category]}></CVProjectSvg>
             );
           })}
         </div>
