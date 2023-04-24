@@ -1,7 +1,13 @@
-import { supabase } from "../lib/supabaseClient";
 import React from "react";
 import CVProjectSvg from "./cv-project";
+import { createServerComponentSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { headers, cookies } from "next/headers";
+
 export default async function CV() {
+  const supabase = createServerComponentSupabaseClient({
+    headers,
+    cookies,
+  });
   let { data, status, statusText } = await supabase.from("experience").select("*");
   let experiences = [];
   if (data) {

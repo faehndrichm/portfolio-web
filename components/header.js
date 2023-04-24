@@ -3,6 +3,7 @@
 import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { default as React, forwardRef, Fragment, useRef, useState } from "react";
+import { useSupabase } from "../app/supabase-provider";
 
 const MyLink = forwardRef((props, ref) => {
   let { href, children, ...rest } = props;
@@ -17,6 +18,7 @@ const MyLink = forwardRef((props, ref) => {
 MyLink.displayName = "MyLink";
 
 export default function Header() {
+  const { user } = useSupabase();
   const [showSearch, setShowSearch] = useState(false);
 
   const searchInput = useRef(null);
@@ -26,6 +28,7 @@ export default function Header() {
   }
   const links = [
     { text: "Projects", href: "/projects" },
+    { text: "Guestbook", href: "/guestbook" },
     { text: "About", href: "/about" },
   ];
 
@@ -55,22 +58,43 @@ export default function Header() {
             className="ml-6 appearance-none border-none bg-transparent font-inconsolata  text-white outline-none ring-0 "
           />
         </div>
-        <svg
-          className="ml-auto h-6 w-6 cursor-pointer transition delay-100 ease-in-out hover:scale-125 "
-          fill="none"
-          onClick={() => {
-            setShowSearch(!showSearch);
-            setInputFocus();
-          }}
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
+        <div className="ml-auto flex flex-row gap-3">
+          <svg
+            className=" h-6 w-6 cursor-pointer transition delay-100 ease-in-out hover:scale-125 "
+            fill="none"
+            onClick={() => {
+              setShowSearch(!showSearch);
+              setInputFocus();
+            }}
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          {!!user && (
+            <div className="flex flex-row gap-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="h-6 w-6">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                />
+              </svg>
+              <span className="text-md">{user.user_metadata.full_name}</span>
+            </div>
+          )}
+          {!user && <Link href="/login">login</Link>}
+        </div>
         <Menu>
           <Menu.Button>
             <svg
