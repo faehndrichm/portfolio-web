@@ -39,11 +39,8 @@ export default async function GuestBookList() {
     .select("id, created_at, text,user_id, profiles(*)")
     .order("created_at", { ascending: false });
 
-  let {
-    data: {
-      session: { user },
-    },
-  } = await supabase.auth.getSession();
+  const req = await supabase.auth.getSession();
+  const user = req?.data?.session?.user;
 
   return (
     <div className="guestbook-list divide-y text-white">
@@ -63,7 +60,9 @@ export default async function GuestBookList() {
                 {new Date(gb.created_at).toLocaleDateString("de-AT")}{" "}
                 {new Date(gb.created_at).toLocaleTimeString("de-AT")}
               </span>
-              {user.id === gb.user_id && <GuestbookDelete guestbook={gb}></GuestbookDelete>}
+              {user?.id && user.id === gb.user_id && (
+                <GuestbookDelete guestbook={gb}></GuestbookDelete>
+              )}
             </div>
             <div className="whitespace-pre-wrap">{gb.text}</div>
           </div>
