@@ -5,18 +5,6 @@ import Link from "next/link";
 import { default as React, forwardRef, Fragment, useRef, useState } from "react";
 import { useSupabase } from "../app/supabase-provider";
 
-const MyLink = forwardRef((props, ref) => {
-  let { href, children, ...rest } = props;
-  return (
-    <Link href={href}>
-      <a ref={ref} {...rest}>
-        {children}
-      </a>
-    </Link>
-  );
-});
-MyLink.displayName = "MyLink";
-
 export default function Header() {
   const { user } = useSupabase();
   const [showSearch, setShowSearch] = useState(false);
@@ -124,11 +112,7 @@ export default function Header() {
               className="absolute left-0 top-14 flex w-full flex-col items-stretch gap-3 bg-gray-950 bg-opacity-50 px-6 py-4 text-xl text-white backdrop-blur-lg">
               {links.map((link) => (
                 <Menu.Item key={link.href} as={Fragment} className=" text-center">
-                  {({ active }) => (
-                    <MyLink className="text-red-600" href={link.href}>
-                      {link.text}
-                    </MyLink>
-                  )}
+                  {({ active }) => <Link href={link.href}>{link.text}</Link>}
                 </Menu.Item>
               ))}
             </Menu.Items>

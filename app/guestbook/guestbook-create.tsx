@@ -30,7 +30,7 @@ export default function GuestbookCreate() {
       <button
         type="submit"
         disabled={!comment}
-        className=" rounded-full border border-gray-500/25  bg-opacity-50 p-3 text-xl text-white backdrop-blur-md hover:shadow-white/75 disabled:bg-gray-800 disabled:text-gray-300">
+        className="text-md rounded-full border  border-gray-500/25 bg-opacity-50 px-4 py-1 text-white  backdrop-blur-md hover:bg-white hover:text-gray-950 disabled:bg-gray-800 disabled:text-gray-300 disabled:shadow-none">
         Kommentieren
       </button>
     </form>

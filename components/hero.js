@@ -11,7 +11,6 @@ import Laptop from "../assets/logo/laptop.png";
 import PR from "../assets/logo/pr.png";
 import Website from "../assets/logo/website.png";
 import Moon from "../assets/background/moon_half.png";
-import Planet from "../assets/background/planet_half.png";
 import Stars from "../assets/background/stars.svg";
 
 export default function Hero() {
@@ -30,7 +29,7 @@ export default function Hero() {
 
       <div className="relative flex w-full justify-center overflow-hidden">
         <div
-          className={`${moonClass} absolute h-[60%]  w-full transition-[top,_opacity]  delay-150 duration-1000 ease-out`}>
+          className={`${moonClass} absolute h-screen  w-full transition-[top,_opacity]  delay-150 duration-1000 ease-out`}>
           <Image
             src={Moon}
             onLoadingComplete={(img) => {
@@ -54,8 +53,8 @@ export default function Hero() {
                   Ich muss dir was ganz wichtiges sagen. Ich könnts dir jetzt sagen, aber ich sags
                   dir lieber morgen.
                 </h3>
-                <div className="mt-6 flex gap-3">
-                  <button className="group flex flex-row items-center justify-between gap-6 rounded-full  bg-white px-9 py-3 font-montserat text-2xl font-bold hover:shadow-lg hover:shadow-white/50">
+                <div className="mt-6 flex flex-col gap-3 md:flex-row">
+                  <button className="group flex flex-row items-center justify-center gap-6 rounded-full bg-white  px-9 py-3 font-montserat text-2xl font-bold hover:shadow-lg hover:shadow-white/50 md:justify-start">
                     Get Started
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +70,8 @@ export default function Hero() {
                       />
                     </svg>
                   </button>
-                  <button className="group flex flex-row items-center gap-6 rounded-full bg-gray-950 px-9 py-3 font-montserat text-2xl font-semibold text-white outline outline-1 outline-gray-500/50 hover:shadow-lg hover:shadow-white/50 hover:outline-2">
+
+                  <button className="group flex flex-row items-center justify-center gap-6 rounded-full  bg-opacity-0 px-9 py-3 font-montserat text-2xl font-semibold text-white outline outline-1 outline-gray-500/50  backdrop-blur-lg hover:shadow-lg hover:shadow-white/50 hover:outline-2 md:justify-start">
                     More
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
