@@ -6,10 +6,10 @@ import ProfileImage from "../assets/profile.png";
 export default function ContactSection() {
   return (
     <section className="flex w-full flex-col">
-      <div className="relative h-64 w-full ">
-        <Image src={BgTriangleLight} fill alt="BgTriangleDark" />
-      </div>
-      <div className="to flex w-full flex-col items-center justify-stretch bg-gradient-to-r from-gray-900 to-gray-500">
+      <div className="to flex w-full flex-col items-center justify-stretch bg-gradient-to-bl from-gray-950 to-gray-400">
+        <div className="relative h-64 w-full ">
+          <Image src={BgTriangleLight} fill alt="BgTriangleDark" />
+        </div>
         <section className="w-full max-w-6xl">
           <div className="flex w-full flex-col items-end justify-end overflow-hidden rounded-3xl md:relative md:h-96 md:flex-row ">
             <div className="flex w-full items-center  rounded-3xl p-6 md:absolute md:h-72 md:bg-gradient-to-r md:from-indigo-300 md:to-cyan-200  md:pr-72">
