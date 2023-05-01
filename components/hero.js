@@ -12,15 +12,12 @@ import PR from "../assets/logo/pr.png";
 import Website from "../assets/logo/website.png";
 import Moon from "../assets/background/moon_half.png";
 import Stars from "../assets/background/stars.svg";
+import HeroProjectElement from "./hero-project-element";
 
 export default function Hero() {
   const [moonClass, setMoonClass] = useState("opacity-0 top-20");
   const [starClass, setStarClass] = useState("scale-50");
 
-  let transition =
-    " transition-all delay-150 ease-in-out hover:z-10 hover:scale-150   hover:shadow-xl hover:shadow-white/20 duration-300";
-
-  let title = "text-center font-inconsolata";
   return (
     <div className="w-full">
       <div
@@ -29,7 +26,7 @@ export default function Hero() {
 
       <div className="relative flex w-full justify-center overflow-hidden">
         <div
-          className={`${moonClass} absolute h-screen  w-full transition-[top,_opacity]  delay-150 duration-1000 ease-out`}>
+          className={`${moonClass} absolute h-screen w-full max-w-7xl transition-[top,_opacity]  delay-150 duration-1000 ease-out`}>
           <Image
             src={Moon}
             onLoadingComplete={(img) => {
@@ -90,107 +87,77 @@ export default function Hero() {
                 </div>
               </div>
               <div className="w-100 grid grid-cols-6 gap-3  md:max-h-[48rem] md:flex-2 md:grid-cols-12 ">
-                <div
-                  className={
-                    "col-span-3 row-span-3 row-start-2 flex aspect-square flex-col rounded-md border border-gray-500/25 bg-opacity-100 p-3 text-xl text-white  hover:backdrop-blur-md" +
-                    transition
-                  }>
-                  <h3 className={title}>Project &#945;</h3>
-                  <div className="flex flex-1 items-center justify-center">
-                    <Image height={48} width={48} src={Arrows} alt="" />
-                  </div>
-                </div>
-                <div
-                  className={
-                    "col-span-3 row-span-3 flex aspect-square flex-col rounded-md border border-gray-500/25 bg-opacity-100 p-3 text-xl text-white hover:backdrop-blur-lg" +
-                    transition
-                  }>
-                  <h3 className={title}>Personal Record</h3>
-                  <div className="flex flex-1 items-center justify-center">
-                    <Image height={48} width={48} src={PR} alt="" />
-                  </div>
-                </div>
-                <div
-                  className={
-                    "col-span-2 col-start-2 row-span-4 flex flex-col rounded-md border border-gray-500/25 bg-opacity-100 p-3 text-xl text-white hover:backdrop-blur-lg md:col-start-auto md:row-start-2" +
-                    transition
-                  }>
-                  <h3 className={title}>Small</h3>
-                  <div className="flex flex-1 items-center justify-center">
-                    <Image height={48} width={48} src={Badge} alt="" />
-                  </div>
-                </div>
-                <div
-                  className={
-                    "col-span-2 row-span-2 flex aspect-square flex-col rounded-md border border-gray-500/25 bg-opacity-100 p-3 text-xl text-white hover:backdrop-blur-lg md:row-start-2" +
-                    transition
-                  }>
-                  <h3 className={title}>Narrow</h3>
-                  <div className="flex flex-1 items-center justify-center">
-                    <Image height={48} width={48} src={Website} alt="" />
-                  </div>
-                </div>
-                <div
-                  className={
-                    "col-span-3 row-span-2 flex flex-col rounded-md border border-gray-500/25 bg-opacity-100 p-3 text-xl text-white hover:backdrop-blur-lg" +
-                    transition
-                  }>
-                  <h3 className={title}>Beans</h3>
-                  <div className="flex flex-1 items-center justify-center">
-                    <Image height={48} width={48} src={Shark} alt="" />
-                  </div>
-                </div>
-                <div
-                  className={
-                    "col-span-3 col-start-4 row-span-3 row-start-4 flex aspect-square flex-col rounded-md border border-gray-500/25 bg-opacity-100 p-3 text-xl text-white hover:backdrop-blur-lg" +
-                    transition
-                  }>
-                  <h3 className={title}>Confiction</h3>
-                  <div className="flex flex-1 items-center justify-center">
-                    <Image height={48} width={48} src={Laptop} alt="" />
-                  </div>
-                </div>
-                <div
-                  className={
-                    "col-span-3 row-span-3 flex aspect-square flex-col rounded-md border border-gray-500/25 bg-opacity-100 p-3 text-xl text-white hover:backdrop-blur-lg" +
-                    transition
-                  }>
-                  <h3 className={title}>Conviction</h3>
-                  <div className="flex flex-1 items-center justify-center">
-                    <Image height={48} width={48} src={Shark} alt="" />
-                  </div>
-                </div>
-                <div
-                  className={
-                    "col-span-2 row-span-3 flex flex-col rounded-md border border-gray-500/25 bg-opacity-100 p-3 text-xl text-white hover:backdrop-blur-lg" +
-                    transition
-                  }>
-                  <h3 className={title}>Barrow</h3>
-                  <div className="flex flex-1 items-center justify-center">
-                    <Image height={48} width={48} src={Laptop} alt="" />
-                  </div>
-                </div>
-                <div
-                  className={
-                    "col-span-4 col-start-3 row-span-4 flex aspect-square flex-col rounded-md border border-gray-500/25 bg-opacity-100 p-3 text-xl text-white hover:backdrop-blur-lg" +
-                    transition
-                  }>
-                  <h3 className={title}>BigMac</h3>
-                  <div className="flex flex-1 items-center justify-center">
-                    <Image height={48} width={48} src={Badge} alt="" />
-                  </div>
-                </div>
+                <HeroProjectElement
+                  props={{
+                    title: "Project α",
+                    src: Arrows,
+                    className: "col-span-3 row-span-3 row-start-2",
+                  }}
+                />
+                <HeroProjectElement
+                  props={{
+                    title: "Personal Record",
+                    src: PR,
+                    className: "col-span-3 row-span-3",
+                  }}
+                />
+                <HeroProjectElement
+                  props={{
+                    title: "Small",
+                    src: Badge,
+                    className: "col-span-2 row-span-4 md:col-start-auto md:row-start-2",
+                  }}
+                />
 
-                <div
-                  className={
-                    "col-span-2 row-span-3 flex flex-col rounded-md border border-gray-500/25 bg-opacity-100 p-3 text-xl text-white hover:backdrop-blur-lg" +
-                    transition
-                  }>
-                  <h3 className={title}>Means</h3>
-                  <div className="flex flex-1 items-center justify-center">
-                    <Image height={48} width={48} src={Website} alt="" />
-                  </div>
-                </div>
+                <HeroProjectElement
+                  props={{
+                    title: "Narrow",
+                    src: Website,
+                    className: "col-span-2 row-span-2 md:row-start-2",
+                  }}
+                />
+                <HeroProjectElement
+                  props={{
+                    title: "Beans",
+                    src: Shark,
+                    className: "col-span-3 row-span-2",
+                  }}
+                />
+                <HeroProjectElement
+                  props={{
+                    title: "Config",
+                    src: Laptop,
+                    className: "col-span-3 col-start-4 row-span-3 row-start-4",
+                  }}
+                />
+                <HeroProjectElement
+                  props={{
+                    title: "Conviction",
+                    src: Shark,
+                    className: "col-span-3 row-span-3",
+                  }}
+                />
+                <HeroProjectElement
+                  props={{
+                    title: "Barrow",
+                    src: Laptop,
+                    className: "col-span-3 row-span-3",
+                  }}
+                />
+                <HeroProjectElement
+                  props={{
+                    title: "BigMac",
+                    src: Badge,
+                    className: "col-span-4 col-start-3 row-span-4 aspect-square",
+                  }}
+                />
+                <HeroProjectElement
+                  props={{
+                    title: "Means",
+                    src: Website,
+                    className: "col-span-2 row-span-3",
+                  }}
+                />
               </div>
             </div>
           </section>
