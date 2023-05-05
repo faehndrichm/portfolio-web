@@ -6,6 +6,8 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: [
+    "flex-row",
+    "flex-row-reverse",
     "col-start-auto",
     "col-start-1",
     "col-start-2",
@@ -77,6 +79,13 @@ module.exports = {
     "to-rose-400",
   ],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1152px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       fontFamily: {
         montserat: "var(--montserrat-font)",
