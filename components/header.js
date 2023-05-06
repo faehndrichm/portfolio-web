@@ -28,11 +28,12 @@ export default function Header() {
         </div>
         <div className={`${showSearch ? "" : "md:flex"}  hidden flex-row items-center gap-3`}>
           {links.map((link, i) => (
-            <div
+            <Link
               key={i}
+              href={link.href}
               className="cursor-pointer p-3 text-base font-bold underline-offset-4 hover:underline">
-              <Link href={link.href}>{link.text}</Link>
-            </div>
+              {link.text}
+            </Link>
           ))}
         </div>
         <div

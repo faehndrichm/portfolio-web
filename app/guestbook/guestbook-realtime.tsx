@@ -80,7 +80,7 @@ export default function GuestbookRealtime({ serverComments }) {
         return (
           <div key={gb.id} className="flex flex-row gap-3 border-gray-500/25 py-3">
             <div
-              className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-${color}-600 to-${color}-400 text-xl font-bold`}>
+              className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-${color}-600 to-${color}-400 font-nunito text-xl font-bold`}>
               {(gb?.profiles["full_name"] ?? "?")[0]}
             </div>
             <div className="flex flex-col gap-3">
