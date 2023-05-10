@@ -1,7 +1,7 @@
 import Project from "./[project]";
 import Loyalio1 from "/assets/projects/loyalio_1.png";
 import portfolio from "/assets/projects/portfolio.png";
-import loyalioApp from "/assets/projects/loyalio_app.jpeg";
+import loyalioApp from "/assets/projects/loyalio_app.png";
 import filmarchiver from "/assets/projects/film-archival-planner.png";
 export default async function ProjectPage() {
   const textPortfolio =
@@ -16,27 +16,32 @@ export default async function ProjectPage() {
   const filmArchivalSummary =
     "Film Archival & Planer is an internal software developed by 6 students from Technische Universität Vienna. Built with Angular and Bootstrap, it serves the needs of Tricky Women, an organization that organizes film festivals. The software enables efficient management and organization of film archives, ensuring easy access and retrieval of films. With its user-friendly interface and powerful features, Film Archival & Planer streamlines the workflow of Tricky Women, making the film festival organization process more seamless and organized.";
   return (
-    <article className="mx-3 my-12 grid max-w-6xl grid-cols-1 gap-6 lg:mx-auto">
+    <article className="mx-3 my-24 grid max-w-6xl grid-cols-1 gap-24 lg:mx-auto">
       <Project
+        number="01"
         title="My Portfolio"
         text={textPortfolio}
         src={portfolio}
         shadowColor="rgb(42, 64, 95,0.5)"
         techs={["nextjs", "tailwind", "supabase"]}></Project>
       <Project
+        number="02"
         title="Loyalio"
         text={loyalioSummary}
         src={loyalioApp}
+        height={350}
         techs={["flutter", "firebase"]}
         shadowColor="rgb(65, 151, 145,0.4)"
         flip={true}></Project>
       <Project
+        number="03"
         title="Loyalio Web"
         text={loyalioSummary}
         src={Loyalio1}
         shadowColor="rgb(65, 151, 145,0.4)"
         techs={["nuxt", "tailwind", "firebase"]}></Project>
       <Project
+        number="04"
         title="Film Archival & Planer"
         text={filmArchivalSummary}
         src={filmarchiver}
@@ -44,6 +49,7 @@ export default async function ProjectPage() {
         techs={["angular", "bootstrap"]}
         flip={true}></Project>
       <Project
+        number="05"
         title="TODO"
         text={textPortfolio}
         src={Loyalio1}

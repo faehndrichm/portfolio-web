@@ -23,9 +23,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-20 flex h-14 w-full justify-center bg-gray-950 bg-opacity-50 text-xl text-white backdrop-blur-lg">
       <div className="relative mx-6 flex w-full max-w-6xl items-center justify-between gap-3 border-b border-gray-500/25 py-2">
-        <div className="mr-auto cursor-pointer text-3xl font-bold transition delay-150 ease-in-out hover:scale-110">
-          <Link href="/">MF</Link>
-        </div>
+        <Link
+          className="mr-auto cursor-pointer rounded-md px-1 text-3xl font-bold  transition-colors duration-200 hover:bg-white hover:text-gray-900"
+          href="/">
+          MF
+        </Link>
         <div className={`${showSearch ? "" : "md:flex"}  hidden flex-row items-center gap-3`}>
           {links.map((link, i) => (
             <Link
@@ -47,9 +49,9 @@ export default function Header() {
             className="ml-6 appearance-none border-none bg-transparent font-inconsolata  text-white outline-none ring-0 "
           />
         </div>
-        <div className="ml-auto flex flex-row gap-3">
+        <div className="ml-auto flex flex-row items-center gap-3">
           <svg
-            className=" h-6 w-6 cursor-pointer transition delay-100 ease-in-out hover:scale-125 "
+            className=" m-auto h-6 w-6 cursor-pointer rounded-md transition-colors duration-200 hover:bg-white hover:text-gray-900"
             fill="none"
             onClick={() => {
               setShowSearch(!showSearch);
@@ -82,7 +84,13 @@ export default function Header() {
               <span className="text-md">{user.user_metadata.full_name}</span>
             </div>
           )}
-          {!user && <Link href="/login">login</Link>}
+          {!user && (
+            <Link
+              className="flex h-9 items-center rounded-md border border-black bg-gray-100 px-4 text-sm font-medium leading-none text-gray-950 transition-colors duration-200 hover:border-gray-800 hover:bg-gray-900 hover:text-white"
+              href="/login">
+              login
+            </Link>
+          )}
         </div>
         <Menu>
           <Menu.Button>

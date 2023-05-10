@@ -16,7 +16,8 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-    <html className={`${montserrat.variable} ${ps2p.variable} ${inconsolata.variable} font-sans`}>
+    <html
+      className={`${montserrat.variable} ${ps2p.variable} ${inconsolata.variable} font-montserat`}>
       <body className="flex min-h-screen flex-col bg-gray-950">
         <SupabaseProvider>
           <Header></Header>
