@@ -90,7 +90,7 @@ module.exports = {
       fontFamily: {
         montserat: "var(--montserrat-font)",
         ps2p: "var(--ps2p-font)",
-        nunito: "var(--nunito-font)",
+        lato: "var(--lato-font)",
         inconsolata: "var(--inconsolata-font)",
       },
       flex: {

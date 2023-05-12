@@ -32,13 +32,13 @@ export default function Project({
 }: ProjectProps) {
   return (
     <div className="relative">
-      <div className="absolute right-0 top-[-5rem] -z-10  bg-gradient-to-b from-gray-300 to-gray-950 bg-clip-text font-inconsolata text-[14rem]/[0.75] text-transparent">
+      <div className="absolute right-0 top-[-5rem] -z-10  bg-gradient-to-b from-gray-300 to-gray-950 bg-clip-text font-montserat text-[14rem]/[0.75] text-transparent">
         {number}
       </div>
       <section
         className={`flex ${
           flip ? "md:flex-row-reverse" : "md:flex-row"
-        } flex-col items-center gap-6 overflow-hidden rounded-md border border-gray-500/25 bg-gray-900/50 p-6`}>
+        } flex-col-reverse items-center gap-6 overflow-hidden rounded-md border border-gray-500/25 bg-gray-900/50 p-6`}>
         <div className="grid flex-1 place-items-center">
           <div className="grid place-items-center">
             <Image
@@ -56,8 +56,8 @@ export default function Project({
           </div>
         </div>
         <div className="flex flex-1 flex-col items-start gap-6">
-          <h3 className="font-montserat text-3xl font-semibold text-white">{title}</h3>
-          <div className="whitespace-pre-line font-montserat text-white">{text}</div>
+          <h3 className="font-montserat text-4xl font-semibold text-white">{title}</h3>
+          <div className="whitespace-pre-line font-lato text-lg text-white">{text}</div>
           <div className="my-6 flex w-full flex-row items-center justify-around">
             {techs.includes("nextjs") && (
               <a href="https://nextjs.org/" className="relative">

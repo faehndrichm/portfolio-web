@@ -2,18 +2,13 @@
 
 import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
-import { default as React, forwardRef, Fragment, useRef, useState } from "react";
+import { default as React, Fragment } from "react";
 import { useSupabase } from "../app/supabase-provider";
+import SearchInput from "./search";
 
 export default function Header() {
   const { user } = useSupabase();
-  const [showSearch, setShowSearch] = useState(false);
 
-  const searchInput = useRef(null);
-
-  function setInputFocus() {
-    searchInput.current.focus();
-  }
   const links = [
     { text: "Projects", href: "/projects" },
     { text: "Guestbook", href: "/guestbook" },
@@ -28,7 +23,7 @@ export default function Header() {
           href="/">
           MF
         </Link>
-        <div className={`${showSearch ? "" : "md:flex"}  hidden flex-row items-center gap-3`}>
+        <div className={`hidden flex-row items-center gap-3 md:flex`}>
           {links.map((link, i) => (
             <Link
               key={i}
@@ -38,34 +33,13 @@ export default function Header() {
             </Link>
           ))}
         </div>
-        <div
-          className={`${
-            showSearch ? "w-3/4" : "w-0"
-          } absolute right-0 my-1 flex h-3/4 items-center overflow-hidden rounded-full bg-gray-800/50 transition-[width] delay-150 duration-300`}>
-          <input
-            placeholder="Search for anything..."
-            type="text"
-            ref={searchInput}
-            className="ml-6 appearance-none border-none bg-transparent font-inconsolata  text-white outline-none ring-0 "
-          />
-        </div>
+
         <div className="ml-auto flex flex-row items-center gap-3">
-          <svg
-            className=" m-auto h-6 w-6 cursor-pointer rounded-md transition-colors duration-200 hover:bg-white hover:text-gray-900"
-            fill="none"
-            onClick={() => {
-              setShowSearch(!showSearch);
-              setInputFocus();
-            }}
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
+          <SearchInput
+            activeClass="w-[75vh]"
+            inactiveClass="w-full"
+            wrapClass=" hidden md:block w-10"
+            className="absolute right-0"></SearchInput>
           {!!user && (
             <div className="flex flex-row gap-3">
               <svg
@@ -86,7 +60,7 @@ export default function Header() {
           )}
           {!user && (
             <Link
-              className="flex h-9 items-center rounded-md border border-black bg-gray-100 px-4 text-sm font-medium leading-none text-gray-950 transition-colors duration-200 hover:border-gray-800 hover:bg-gray-900 hover:text-white"
+              className="hidden h-9 items-center rounded-md border border-black bg-gray-100 px-4 text-sm font-medium leading-none text-gray-950 transition-colors duration-200 hover:border-gray-800 hover:bg-gray-900 hover:text-white md:flex"
               href="/login">
               login
             </Link>
@@ -118,12 +92,40 @@ export default function Header() {
             leaveTo="transform opacity-0 scale-95">
             <Menu.Items
               as="nav"
-              className="absolute left-0 top-14 flex w-full flex-col items-stretch gap-3 bg-gray-950 bg-opacity-50 px-6 py-4 text-xl text-white backdrop-blur-lg">
+              className="absolute -left-6 top-14 flex w-screen flex-col items-stretch gap-3 bg-gray-950 bg-opacity-50 px-6  py-4 text-xl text-white backdrop-blur-lg">
+              <Menu.Item as={"div"} disabled className="flex flex-row">
+                <SearchInput
+                  isStatic
+                  activeClass="w-full"
+                  inactiveClass="w-0"
+                  className=""
+                  wrapClass="w-full"></SearchInput>
+              </Menu.Item>
               {links.map((link) => (
                 <Menu.Item key={link.href} as={Fragment} className=" text-center">
-                  {({ active }) => <Link href={link.href}>{link.text}</Link>}
+                  {({ active }) => (
+                    <Link className={`${active && "text-bold"}`} href={link.href}>
+                      {link.text}
+                    </Link>
+                  )}
                 </Menu.Item>
               ))}
+              <Menu.Item as={"div"} className="flex flex-row gap-6">
+                {!user && (
+                  <Link
+                    className="flex h-9 flex-1 items-center justify-center rounded-md border border-black bg-gray-100 px-4 text-sm font-bold leading-none text-gray-950 transition-colors duration-200 hover:border-gray-800 hover:bg-gray-900 hover:text-white"
+                    href="/login">
+                    login
+                  </Link>
+                )}
+                {!user && (
+                  <Link
+                    className="flex h-9 flex-1 items-center justify-center rounded-md border border-gray-800 bg-gray-900 px-4 text-sm font-bold  leading-none text-white transition-colors duration-200 hover:border-black hover:bg-white hover:text-gray-950"
+                    href="/login">
+                    logout
+                  </Link>
+                )}
+              </Menu.Item>
             </Menu.Items>
           </Transition>
         </Menu>
